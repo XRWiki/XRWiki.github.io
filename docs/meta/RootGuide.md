@@ -34,13 +34,29 @@ Happy Rooting!
 ---
 # Command Line
 
+**THIS IS NOT FOR THE END USER**
 
-Make sure you have a quest 3 or 3s (IT WILL NOT WORK ON OTHER DEVICES!) and you also need adb (android debug bridge) **THIS IS NOT FOR THE END USER**
-
-**Options:**
+Options:
 - Choose to disable SELinux, gain root, both, or install Magisk with both.
 - Optionally dump the kernel image.
 - Optionally launch a shell with toybox nc (`localhost:1234`)
 
-Now lets get started
+Now lets get started.
 
+Download for [exploit](https://github.com/FreeXR/eureka_panther-adreno-gpu-exploit-1/releases/latest)
+
+For the first thing, DISABLE OTA UPDATES! (This is needed so you cant get updates that patches the exploit)
+
+`adb shell pm disable-user --user 0 com.oculus.updater`
+Run this first
+
+`adb push exploit /data/local/tmp`
+Then run this
+
+And finally that
+```
+adb shell
+chmod +x /data/local/tmp/exploit/exploit
+data/local/tmp/exploit/exploit
+```
+In this exact order, this will run the exploit, temporarily allowing you access to a root shell until a reboot.
