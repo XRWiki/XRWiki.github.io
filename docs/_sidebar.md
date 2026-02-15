@@ -4,7 +4,7 @@
 * [Getting Started](gettingstarted.md)
 ---
 * **Meta**
-  * [Root Guide](meta/RootGuide.md)
+  * [Root Guide](Meta/RootGuide.md)
   * [Uhhh, idk what to put here yet]()
 ---
 

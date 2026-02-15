@@ -11,18 +11,25 @@ If the number that appears is **HIGHER** than these numbers, **you CANNOT root**
 ---
 # Event Horizon
 
-[Event Horizon](https://github.com/Luminacy/EventHorizon) is an app thats automatically roots on boot and installs Magisk.
+[Event Horizon](https://github.com/veygax/EventHorizon) is an app thats automatically roots on boot and installs Magisk.
 
 Things you can do with Event Horizon:
+*  Root
+*  Edit select preferences
+*  Over/Under clock CPU or GPU
 *  Disable auto installing default Apps
-*   Edit select preferences
-*   Over/Under clock CPU or GPU
-*   
-*   
-*   
+*  Custom Utilities
 
 ## How to install   
+Go to the [Event Horizon](https://github.com/veygax/EventHorizon/releases/latest) Github and download the eventhorizon.apk file
 
+Use any way to install apk files to the device. Sidequest, ADB Shell, etc
+
+Then, open the app in the device, press root, and wait.
+
+The headset should reboot when done
+
+Happy Rooting!
 
 ---
 # Command Line
