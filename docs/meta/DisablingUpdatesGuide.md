@@ -11,4 +11,4 @@ Use pi-hole or something similar to block the domains below:
 https://raw.githubusercontent.com/veygax/eventhorizon/refs/heads/main/hosts
 ## Blocking with EventHorizon
 EventHorizon automatically blocks OTA updates upon rooting, however it also has a Meta Domain Blocker built into it that can you enable. If you don't have a rootable headset, this will just block internet entirely.
-For more info on EventHorizon, check out it's page (can be found on the sidebar)
+For more info on EventHorizon, check out it's [page](meta/RootGuide.md)
