@@ -5,7 +5,7 @@
 ---
 * **Meta**
   * [Root Guide](meta/RootGuide.md)
-  * [Uhhh, idk what to put here yet]()
+  * [PrivateQuest Guide](meta/PrivateQuestGuide.md)
 ---
 
 * **Pico**
