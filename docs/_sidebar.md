@@ -9,9 +9,11 @@
 ---
 
 * **Pico**
+  * [Pico Info](pico/pico.md)
 ---
 
 * **Valve**
+  * [Valve Info](valve/valve.md)
 ---
 
 **Other**
