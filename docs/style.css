@@ -636,6 +636,7 @@ section.cover blockquote > p > a:hover {
   margin: 0 2px;
   padding: 3px 5px;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 .markdown-section > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) code {
   font-size: 0.8rem;
@@ -650,7 +651,9 @@ section.cover blockquote > p > a:hover {
   overflow: auto;
   padding: 0 1.4rem;
   position: relative;
-  word-wrap: normal;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 .token.comment,
 .token.prolog,
@@ -785,8 +788,62 @@ input[type='search'] {
     text-align: center;
     width: 100%;
   }
-  .content {
+  body:not(.close) .content {
     left: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #18181b;
+    align-items: flex-start;
+    border-right: none;
+    padding-top: 60px;
+  }
+  
+  .sidebar > h1, 
+  .sidebar .sidebar-nav {
+    width: 100%;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .sidebar ul li a {
+    font-size: 1rem;
+    padding: 10px 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  /* Content takes full width always on mobile */
+  .content, body:not(.close) .content {
+    left: 0;
+    width: 100%;
+    padding-top: 60px;
+  }
+  
+  /* Move toggle to top-left */
+  .sidebar-toggle {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    padding: 20px;
+    z-index: 10000;
+  }
+  
+  .markdown-section {
+    max-width: 100%;
+    padding: 20px;
   }
 }
 
