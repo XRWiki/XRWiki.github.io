@@ -1,12 +1,10 @@
 # Quest 3 / 3s Root Guide
 
-To check if you can gain root access on your Quest 3 or 3s, run `adb shell getprop ro.build.version.incremental`
-
-If the number that appears is **HIGHER** than these numbers, **you CANNOT root** at this point in time.
-
-* Panther|Quest 3s `1176880085300610` (79.0.0.1187.593.767170732)
-
-* Eureka|Quest 3 `51154110129000520` (79.0.0.1239.593.774348660)
+> [!NOTE]
+> To check if you can gain root access on your Quest 3 or 3s, run `adb shell getprop ro.build.version.incremental`
+> If the number that appears is **HIGHER** than these numbers, **you CANNOT root** at this point in time.
+> * Panther|Quest 3s `1176880085300610` (79.0.0.1187.593.767170732)
+> * Eureka|Quest 3 `51154110129000520` (79.0.0.1239.593.774348660)
 
 ---
 # Event Horizon
