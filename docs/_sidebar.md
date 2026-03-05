@@ -6,6 +6,7 @@
 * **Meta**
   * [Root Guide](meta/RootGuide.md)
   * [PrivateQuest Guide](meta/PrivateQuestGuide.md)
+  * [Disabling Updates Guide](meta/DisablingUpdatesGuide.md)
 ---
 
 * **Pico**
