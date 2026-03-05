@@ -823,14 +823,12 @@ input[type='search'] {
     text-align: left;
   }
 
-  /* Content takes full width always on mobile */
   .content, body:not(.close) .content {
     left: 0;
     width: 100%;
     padding-top: 60px;
   }
   
-  /* Move toggle to top-left */
   .sidebar-toggle {
     position: fixed;
     top: 0;
