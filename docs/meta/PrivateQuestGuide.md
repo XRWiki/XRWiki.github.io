@@ -1,6 +1,6 @@
 # PrivateQuest Setup Guide
 > [!INFO]
-> If you need help, join the [FreeXR Discord Server](https://discord.gg/ABCXxDyqrH). Your questions can help us improve this guide.
+> If you need help, join the [FreeXR Discord Server](https://discord.gg/QYxCQJSecP). Your questions can help us improve this guide.
 
 > [!CAUTION]
 > Skipping NUX is **NOT** possible on earlier versions of the headset. We are unsure of the versions, but we believe it has been added somewhere in v70s
@@ -32,7 +32,7 @@ Using PrivateQuest is highly recommended, if not mandatory, for root users, as i
   If using sqlitebrowser, go to the Browse Data Tab, select the `preferences` table. Then:
   - `MetaProfileGenericAuthMap` is your META and Oculus Access Token. It should be a bunch of JSON code. The values of `userID` and `token` are what you need.
   - `MetaUserID` is your User ID for both tokens
-  
+
 ---
 # Setup
 
