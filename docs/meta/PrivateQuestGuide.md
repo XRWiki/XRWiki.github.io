@@ -3,7 +3,7 @@
 > If you need help, join the [FreeXR Discord Server](https://discord.gg/QYxCQJSecP). Your questions can help us improve this guide.
 
 > [!CAUTION]
-> Skipping NUX is **NOT** possible on earlier versions of the headset. Specifically below v74
+> The Skip NUX button will **NOT** work on earlier versions of the headset. Specifically below v74
 
 > [!WARNING]
 > This **REQUIRES** an Android Phone that has BLE capabilities
