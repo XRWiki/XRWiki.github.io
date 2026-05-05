@@ -19,12 +19,12 @@ Using PrivateQuest is highly recommended, if not mandatory, for root users, as i
 > [!NOTE]
 > If you want to log into your meta account whilst using private-quest, this is required, else skip this step
 
-- **Method 1 (The "Already Rooted" way):**
+- **Method 1 (Rooted Headset):**
   - Use root to run this `cat /data/data/com.oculus.horizon/shared_prefs/authentication.xml`
   - Your Access Token is the string inside `<string name="access_token"></string>`
   - Your User ID is the string inside `<string name="uid"></string>`
 
-- **Method 2 (The "Rooted Android App" way):**
+- **Method 2 (Rooted Android):**
   - Use root to copy  `/data/data/com.oculus.twilight/databases/prefs_db` to somewhere you can easily read it
 
   `prefs_db` is an sqlite file. You can use something like [sqlitebrowser](https://sqlitebrowser.org/) to read it's contents.
@@ -32,6 +32,12 @@ Using PrivateQuest is highly recommended, if not mandatory, for root users, as i
   If using sqlitebrowser, go to the Browse Data Tab, select the `preferences` table. Then:
   - `MetaProfileGenericAuthMap` is your META and Oculus Access Token. It should be a bunch of JSON code. The values of `userID` and `token` are what you need.
   - `MetaUserID` is your User ID for both tokens
+  
+- **Method 2.5 (Unrooted Android):**
+  - In Progress, here for now
+  
+- **Method 3 (Meta Horizon Link):**
+  - In Progress, here for now
 
 ---
 # Setup
@@ -52,13 +58,21 @@ Using PrivateQuest is highly recommended, if not mandatory, for root users, as i
 
 
 ---
-## Logging In
+## Logging In Pre v79 Maybe v85 (May change Later, Unsure)
 
 - In the Init tab:
 	- Set **BOTH** Oculus AccessToken and Meta AccessToken to the value of `MetaProfileGenericAuthMap` or `access_token`
 	- Set **BOTH** Oculus UserId and Meta UserId to the value of `METAUserID` or `uid`
   - Scroll down and press `Set combined token`
   - Finally Scroll to the bottom and press `Skip NUX`
+
+## Logging In Post v85 (May change Later, Unsure)
+
+- In the Init tab:
+	- Set **JUST** Meta AccessToken to the value of `MetaProfileGenericAuthMap` or `access_token`
+	- Set **JUST** Meta UserId to the value of `METAUserID` or `uid`
+  - Finally Scroll to the bottom and press `Skip NUX`
+
 
 Let it load the system UI. If it does not, power off the headset and turn it back on
 
