@@ -58,21 +58,13 @@ Using PrivateQuest is highly recommended, if not mandatory, for root users, as i
 
 
 ---
-## Logging In Pre v79 Maybe v85 (May change Later, Unsure)
+## Logging In
 
 - In the Init tab:
 	- Set **BOTH** Oculus AccessToken and Meta AccessToken to the value of `MetaProfileGenericAuthMap` or `access_token`
 	- Set **BOTH** Oculus UserId and Meta UserId to the value of `METAUserID` or `uid`
   - Scroll down and press `Set combined token`
   - Finally Scroll to the bottom and press `Skip NUX`
-
-## Logging In Post v85 (May change Later, Unsure)
-
-- In the Init tab:
-	- Set **JUST** Meta AccessToken to the value of `MetaProfileGenericAuthMap` or `access_token`
-	- Set **JUST** Meta UserId to the value of `METAUserID` or `uid`
-  - Finally Scroll to the bottom and press `Skip NUX`
-
 
 Let it load the system UI. If it does not, power off the headset and turn it back on
 
