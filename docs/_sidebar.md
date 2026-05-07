@@ -1,21 +1,29 @@
 <!-- docs/_sidebar.md -->
 
+* [Getting Started](/)
 
-* [Getting Started](gettingstarted.md)
 ---
+
 * **Meta**
-  * [Root Guide](meta/RootGuide.md)
-  * [PrivateQuest Guide](meta/PrivateQuestGuide.md)
-  * [Disabling Updates Guide](meta/DisablingUpdatesGuide.md)
+  * [> Quest Guides]()
+    * [Root Guide](meta/RootGuide.md)
+    * [PrivateQuest Guide](meta/PrivateQuestGuide.md)
+    * [Disabling Updates Guide](meta/DisablingUpdatesGuide.md)
+  * [> OculusPreferences]()
+    * [> Preferences v79]()
+      * [51154110129000520](meta/preferences/v79/51154110129000520.md)
+
 ---
 
 * **Pico**
-  * [Pico Info](pico/pico.md)
+  * [Pico](pico/pico.md)
+
 ---
 
 * **Valve**
-  * [Valve Info](valve/valve.md)
+  * [Valve](valve/valve.md)
+
 ---
 
-**Other**
+* **Other**
   * [Credits](credits.md)

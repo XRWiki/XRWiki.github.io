@@ -7,6 +7,7 @@
   <meta name="description" content="Wiki for XR devices">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="style.css" />
+  <style>html,body{background-color:#161616}</style>
 </head>
 <body>
   <div id="app"></div>
@@ -14,12 +15,12 @@
     window.$docsify = {
       name: 'XR Wiki',
       loadSidebar: true,
-      autoHeader: true,
-      subMaxLevel: 5
+      subMaxLevel: 5,
+      homepage: 'gettingstarted.md'
     };
   </script>
-  <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="code.js"></script>
 </body>
 </html>
