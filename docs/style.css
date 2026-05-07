@@ -205,7 +205,7 @@ main.hidden {
   top: 0;
   bottom: 0;
   left: 0;
-  transition: none;
+  transition: transform 0.3s ease;
   width: 330px;
   z-index: 20;
   display: flex;
@@ -322,7 +322,7 @@ body.sticky .sidebar-toggle {
   right: 0;
   bottom: 0;
   left: 300px;
-  transition: none;
+  transition: left 0.3s ease;
 }
 
 .markdown-section {
