@@ -29,6 +29,20 @@ function initFolders() {
   });
 }
 
+function initFullWidthClick(sidebar) {
+  if (!sidebar || sidebar.dataset.clickHandler) return;
+  sidebar.dataset.clickHandler = '1';
+  sidebar.addEventListener('click', function(e) {
+    if (e.target.closest('.sidebar-folder-button')) return;
+    var li = e.target.closest('.sidebar ul li');
+    if (!li) return;
+    var a = li.querySelector(':scope > a[href]');
+    if (a && e.target !== a && !a.contains(e.target)) { a.click(); return; }
+    var btn = li.querySelector(':scope > .sidebar-folder-button');
+    if (btn && e.target !== btn && !btn.contains(e.target)) btn.click();
+  });
+}
+
 function openActiveFolders() {
   var hash = window.location.hash.replace(/^#\/?/, '');
   document.querySelectorAll('.sidebar-folder-button').forEach(function(btn) {
@@ -58,10 +72,15 @@ window.$docsify.plugins = (window.$docsify.plugins || []).concat([
     });
     hook.mounted(function() {
       var sidebar = document.querySelector('.sidebar');
+      initFullWidthClick(sidebar);
       if (sidebar) {
+        var debounceTimer;
         new MutationObserver(function() {
-          initFolders();
-          openActiveFolders();
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(function() {
+            initFolders();
+            openActiveFolders();
+          }, 50);
         }).observe(sidebar, { childList: true, subtree: true });
       }
     });
