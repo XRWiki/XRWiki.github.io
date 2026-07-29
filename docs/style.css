@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600..700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 :root {
   --theme-color: #63c5fa;
@@ -12,7 +12,7 @@
   --text: #ece9e3;
   --text-dim: #9c968d;
   --text-faint: #635d55;
-  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Roboto Mono', Monaco, Consolas, monospace;
 }
 
@@ -233,7 +233,7 @@ main.hidden {
   margin: 0;
   padding: 0 20px 16px 24px;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   font-family: var(--font-display);
   text-align: left;
   width: 100%;
@@ -345,6 +345,7 @@ body.sticky .sidebar-toggle {
   max-width: min(960px, 92%);
   padding: 52px 32px 80px 32px;
   position: relative;
+  transform: translateX(-24px);
 }
 .markdown-section > * {
   box-sizing: border-box;
@@ -634,17 +635,17 @@ section.cover blockquote > p > a:hover {
 .markdown-section h1 {
   font-family: var(--font-display);
   font-size: 2.3rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin: 0 0 1.4rem;
   padding-bottom: 0.8rem;
 }
 .markdown-section h2 {
   font-family: var(--font-display);
   font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: -0.005em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   margin: 56px 0 1rem;
   padding-bottom: 0.5rem;
 }
@@ -917,6 +918,7 @@ input[type='search'] {
   .markdown-section {
     max-width: 100%;
     padding: 28px 20px 60px;
+    transform: none;
   }
 }
 
@@ -924,6 +926,7 @@ input[type='search'] {
 .markdown-section .markdown-alert,
 .markdown-section .alert,
 .markdown-section .alert.callout {
+  border: 1px solid;
   border-radius: 2px;
   margin: 2em 0;
   padding: 12px 24px 12px 30px;
@@ -934,11 +937,7 @@ input[type='search'] {
 .markdown-section .markdown-alert-title,
 .markdown-section .alert .title,
 .markdown-section .alert.callout .title {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -948,6 +947,7 @@ input[type='search'] {
 .markdown-section .alert.note,
 .markdown-section .alert.callout.note {
   background-color: var(--theme-color-soft) !important;
+  border-color: var(--theme-color) !important;
 }
 .markdown-section .markdown-alert-note .markdown-alert-title,
 .markdown-section .alert.note .title,
@@ -960,6 +960,7 @@ input[type='search'] {
 .markdown-section .alert.warning,
 .markdown-section .alert.callout.warning {
   background-color: rgba(234, 179, 8, 0.1) !important;
+  border-color: #eab308 !important;
 }
 .markdown-section .markdown-alert-warning .markdown-alert-title,
 .markdown-section .alert.warning .title,
@@ -973,6 +974,7 @@ input[type='search'] {
 .markdown-section .alert.callout.caution,
 .markdown-section .alert.callout.attention {
   background-color: rgba(239, 68, 68, 0.1) !important;
+  border-color: #ef4444 !important;
 }
 .markdown-section .markdown-alert-caution .markdown-alert-title,
 .markdown-section .alert.caution .title,
