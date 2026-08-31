@@ -16,6 +16,7 @@ QuestStack is an unlock tool for Windows, MacOS and Linux based devices allowing
 Download it from [here](https://github.com/starseed12345/QuestStack/releases/latest), selecting the version for your operating system
 
 Extract and open the tool
+
 ![QuestStack.png](../../assets/images/monterey/QuestStack.png)
 
 Connect your headset and select "Check ADB", make sure to accept any prompts your headset shows.

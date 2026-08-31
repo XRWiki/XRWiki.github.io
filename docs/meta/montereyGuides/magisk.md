@@ -69,16 +69,17 @@ adb pull /sdcard/Download/magisk_patched_[random_strings].img
 > You can use your TAB key to autocomplete the results.
 
 ### Testing the compiled boot img
+You will need to test out your boot.img file to make sure that it functions correctly.
 
-you will need to test out your boot.img file to make sure that it functions correctly.
-
-boot into fastboot with `adb reboot bootloader` and execute the following command
+Boot into fastboot with `adb reboot bootloader` and execute the following command
 
 ```shell
 fastboot boot magisk_patched_[random_strings].img
 ```
 
+Once you are in Horizon OS, open the Magisk app and verify that it has installed correctly.
 
+### Flashing Magisk
 
 Next is to figure out your boot slot, boot into fastboot with `adb reboot bootloader`, Then select device info, note down your "active slot" and exit out of that menu
 
