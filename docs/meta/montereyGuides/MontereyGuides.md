@@ -1,18 +1,16 @@
 # Oculus Quest (Monterey) Guide
 
 > [!NOTE]
-> Most development and support with the quest is provided by the [Monterey Club]() Discord server, its is recommended to join there if you have any specific questions or projects you would like to share :)
+    > Most development and support with the quest is provided by the [Monterey Club](https://discord.gg/xRuG4ejVSk) Discord server, its is recommended to join there if you have any specific questions or projects you would like to share :)
 
 
 
 ## Categories
 
-Unlocking your headset
+[Unlocking your headset](unlock.md)
 
-Installing Magisk
+[Rooting your firmware](magisk.md)
 
-Setup Guides
+[Setup Guides](setup.md)
 
-Tweaks and fixes
-
-
+[Tweaks and fixes](tweaks.md)
