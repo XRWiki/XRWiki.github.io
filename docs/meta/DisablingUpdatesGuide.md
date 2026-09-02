@@ -8,7 +8,7 @@ This method is patched but will work on headsets on <v81 and early builds of v81
 If successful, this should output `"Package com.oculus.updater new state: disabled-user"`
 ## Blocking Meta Domains (Network Level)
 Use pi-hole or something similar to block the domains below:
-https://raw.githubusercontent.com/veygax/eventhorizon/refs/heads/main/hosts
-## Blocking with EventHorizon
-EventHorizon automatically blocks OTA updates upon rooting, however it also has a Meta Domain Blocker built into it that can you enable. If you don't have a rootable headset, this will just block internet entirely.
-For more info on EventHorizon, check out it's [page](meta/RootGuide.md)
+https://raw.githubusercontent.com/Lumince/singularity/refs/heads/main/hosts
+## Blocking with Singularity
+Singularity automatically blocks OTA updates upon rooting, however it also has a Meta Domain Blocker built into it that can you enable. If you don't have a rootable headset, this will just block internet entirely.
+For more info on Singularity, check out it's [page](meta/RootGuide.md)

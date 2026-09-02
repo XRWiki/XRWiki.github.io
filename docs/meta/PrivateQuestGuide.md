@@ -206,9 +206,9 @@ This will disable the quest system software updater service. Note however that t
 
 ## 5. Root the headset
 ### Install root
-Download [Event Horizon](https://github.com/veygax/eventhorizon). Once again, using adb, install it like so:
+Download [Singularity](https://github.com/Lumince/singularity). Once again, using adb, install it like so:
 ```
-adb install eventhorizon.apk
+adb install Singularity.apk
 ```
 
 Once it's installed, find it in lightning launcher, open it up, and enable `Root on Boot`, then press the `Root Now` button.
