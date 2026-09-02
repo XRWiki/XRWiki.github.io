@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XRWiki</title>
+  <title>XR Wiki</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Wiki for XR devices">
+  <meta name="description" content="Community documentation for XR headsets — rooting, tweaks, firmware and setup guides for Quest, Pico and Valve hardware.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
-  <style>html,body{background-color:#161513}</style>
+  <meta name="color-scheme" content="dark light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=2" />
+
+  <script>
+    /* Set the theme before first paint so the page never flashes the wrong
+       ground. A saved choice wins; with nothing saved the system decides.
+       Whatever name is stored is used as it stands, so adding a palette to the
+       stylesheet and a row to THEMES in code.js is all it takes to add one. */
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('xrwiki.theme'); } catch (e) {}
+      var system = window.matchMedia('(prefers-color-scheme: light)').matches
+        ? 'light'
+        : 'dark';
+      document.documentElement.dataset.theme = saved || system;
+    })();
+  </script>
 </head>
 <body>
   <div id="app"></div>
@@ -16,12 +36,16 @@
       name: 'XR Wiki',
       loadSidebar: true,
       subMaxLevel: 5,
-      homepage: 'gettingstarted.md'
+      homepage: 'gettingstarted.md',
+      auto2top: true
     };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Docsify ships Prism with markup, CSS and JS only. Nearly every block on
+       this wiki is a shell command, so the bash grammar is the one that earns
+       its request; it registers the `sh` and `shell` aliases with it. -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-  <script src="code.js"></script>
+  <script src="code.js?v=2"></script>
 </body>
 </html>
-
