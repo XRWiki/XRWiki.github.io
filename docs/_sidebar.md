@@ -52,5 +52,5 @@
 ---
 
 * **Other**
-  * [Editing the Wiki](meta/EditingTheWiki.md)
+  * [Comments](meta/Commenting.md)
   * [Credits](credits.md)
