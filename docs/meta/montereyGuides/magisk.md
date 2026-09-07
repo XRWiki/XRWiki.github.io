@@ -81,7 +81,11 @@ Once you are in Horizon OS, open the Magisk app and verify that it has installed
 
 ### Flashing Magisk
 
-Next is to figure out your boot slot, boot into fastboot with `adb reboot bootloader`, Then select device info, note down your "active slot" and exit out of that menu
+Next is to figure out your boot slot, boot into fastboot with `adb reboot bootloader`, Then run 
+```shell
+fastboot getvar current-slot
+```
+Note down your current slot (a or b)
 
 You can run this command to flash Magisk
 
