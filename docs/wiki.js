@@ -159,13 +159,64 @@ function pageTitle() {
 /* Who the token belongs to and what it can do here. `GET /repos/:o/:r` returns
    a `permissions` block for whoever is asking, which is the one check a person
    with no push access is still allowed to make — the collaborators endpoint
-   403s for exactly the people whose access we most need to know about. */
-var session = { state: 'anonymous', user: null, canPush: false, role: 'Reader' };
+   403s for exactly the people whose access we most need to know about.
+
+   Two rules keep somebody signed in, both learned the hard way:
+
+     - The answer is remembered, so a page load renders the signed-in sidebar
+       from the last one instead of showing "Connect GitHub" for as long as two
+       round-trips take. Starting anonymous and correcting afterwards reads, on
+       every single navigation, as having been logged out.
+     - Only a 401 is allowed to delete the token. A dropped connection, a 500
+       or a rate-limit 403 all mean "ask again later", and answering them by
+       throwing the credential away logs somebody out for the rest of the day
+       because their wifi blinked. */
+var PROFILE_KEY = 'xrwiki.gh.user';
+
+function savedProfile() {
+  try { return JSON.parse(localStorage.getItem(PROFILE_KEY) || 'null'); } catch (e) { return null; }
+}
+
+function saveProfile(profile) {
+  try {
+    if (profile) localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+    else localStorage.removeItem(PROFILE_KEY);
+  } catch (e) {}
+}
+
+function anonymousSession() {
+  return { state: 'anonymous', user: null, canPush: false, role: 'Reader' };
+}
+
+function roleFor(perms) {
+  return perms.admin ? 'Owner'
+    : perms.maintain ? 'Moderator'
+    : perms.push ? 'Editor'
+    : 'Contributor';
+}
+
+/* The starting state, settled before any request goes out: the remembered
+   session if there is one, "loading" for a token whose owner is not yet known,
+   and anonymous only when there is genuinely no token. */
+var session = (function () {
+  if (!token()) return anonymousSession();
+  var cached = savedProfile();
+  if (!cached) return { state: 'loading', user: null, canPush: false, role: 'Reader' };
+  return {
+    state: 'signed-in',
+    user: cached.user,
+    canPush: cached.canPush,
+    role: cached.role,
+    stale: true
+  };
+})();
+
 var sessionWaiters = [];
+var sessionPromise = null;
 
 function onSession(fn) {
   sessionWaiters.push(fn);
-  if (session.state !== 'loading') fn(session);
+  fn(session);
 }
 
 function announceSession() {
@@ -174,34 +225,53 @@ function announceSession() {
 
 function loadSession() {
   if (!token()) {
-    session = { state: 'anonymous', user: null, canPush: false, role: 'Reader' };
+    saveProfile(null);
+    session = anonymousSession();
     announceSession();
-    return Promise.resolve(session);
+    sessionPromise = Promise.resolve(session);
+    return sessionPromise;
   }
-  session.state = 'loading';
-  return Promise.all([api('/user'), api('/repos/' + WIKI.owner + '/' + WIKI.repo)])
+
+  sessionPromise = Promise.all([api('/user'), api('/repos/' + WIKI.owner + '/' + WIKI.repo)])
     .then(function (res) {
       var perms = res[1].permissions || {};
       session = {
         state: 'signed-in',
         user: res[0],
         canPush: !!perms.push,
-        role: perms.admin ? 'Owner'
-          : perms.maintain ? 'Moderator'
-          : perms.push ? 'Editor'
-          : 'Contributor'
+        role: roleFor(perms)
       };
+      /* Only the three fields the sidebar draws, rather than the whole user
+         object GitHub returns. */
+      saveProfile({
+        user: {
+          login: res[0].login,
+          avatar_url: res[0].avatar_url,
+          html_url: res[0].html_url
+        },
+        canPush: session.canPush,
+        role: session.role
+      });
       announceSession();
       return session;
     })
-    .catch(function () {
-      /* A revoked or mistyped token is worse than none: it makes every later
-         call fail in a way that looks like the wiki is broken. Drop it. */
-      setToken('');
-      session = { state: 'anonymous', user: null, canPush: false, role: 'Reader' };
+    .catch(function (err) {
+      if (err && err.status === 401) {
+        setToken('');
+        saveProfile(null);
+        session = anonymousSession();
+      } else if (session.state === 'loading') {
+        /* A token that has never been checked on a connection that will not
+           answer. Keep it — it is probably fine, and the next load or the
+           Retry button will say so. */
+        session = { state: 'offline', user: null, canPush: false, role: 'Reader' };
+      } else {
+        session.stale = true;
+      }
       announceSession();
       return session;
     });
+  return sessionPromise;
 }
 
 /* ---------- maintainers ---------- */
@@ -784,6 +854,17 @@ function reportResult(result, reload) {
 
 function requireAccount(then, handoff) {
   if (session.state === 'signed-in') return then();
+
+  /* Pressing Edit during the moment a token is still being checked used to ask
+     for a second token. Wait for the answer already on its way instead. */
+  if ((session.state === 'loading' || session.state === 'offline') && sessionPromise) {
+    return sessionPromise
+      .then(function (s) { return s.state === 'offline' ? loadSession() : s; })
+      .then(function (s) {
+        if (s.state === 'signed-in') return then();
+        connectDialog(function () { then(); }, handoff);
+      });
+  }
   connectDialog(function () { then(); }, handoff);
 }
 
@@ -1083,6 +1164,21 @@ function renderAccount() {
     else sidebar.appendChild(row);
   }
   row.textContent = '';
+
+  if (session.state === 'loading') {
+    row.appendChild(el('span', { class: 'sidebar-account-note', text: 'Checking GitHub\u2026' }));
+    return;
+  }
+
+  if (session.state === 'offline') {
+    row.appendChild(el('span', { class: 'sidebar-account-note', text: 'GitHub unreachable' }));
+    row.appendChild(el('button', {
+      type: 'button', class: 'sidebar-signout', text: 'Retry',
+      title: 'Check the saved token again',
+      onclick: function () { loadSession().then(renderAccount); }
+    }));
+    return;
+  }
 
   if (session.state === 'signed-in') {
     row.appendChild(el('img', {
