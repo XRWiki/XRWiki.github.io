@@ -28,14 +28,21 @@ var WIKI = {
   root: 'docs/',
   api: 'https://api.github.com',
 
-  /* giscus keeps the comments in this repository's GitHub Discussions. The
-     repo id is public and safe to ship; `categoryId` is filled in once
-     Discussions is switched on and the giscus app is installed. Until then
-     the comment section says so rather than rendering a broken frame. */
+  /* giscus keeps the comments in this repository's GitHub Discussions. Both ids
+     are public and safe to ship — they identify the repository and the category
+     to file threads under, and neither grants anything.
+
+     Announcements is the category because its format only lets maintainers and
+     giscus open a discussion. That is the property that matters: a thread is
+     created the first time somebody comments on a page, and nobody can
+     hand-make threads that shadow a page that has none. To move the comments to
+     a category of their own, make one with the Announcement format and put its
+     name and id here — worth doing before threads accumulate, since existing
+     ones would have to be re-filed by hand. */
   giscus: {
     repoId: 'R_kgDORNHS7A',
-    category: 'Page comments',
-    categoryId: ''
+    category: 'Announcements',
+    categoryId: 'DIC_kwDORNHS7M4DFGYw'
   }
 };
 

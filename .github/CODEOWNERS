@@ -23,10 +23,14 @@
 
 # ---------- moderators, by section ----------
 #
-# Uncomment a line and add the handles of whoever looks after that part.
-# Everything not listed falls back to the owners above.
+# A rule here replaces the general one above for the paths it matches, rather
+# than adding to it — so whoever is named becomes the code owner of that
+# section on their own. Add more handles to a line to share it.
+#
+# The Quest 1 (Monterey) guides, including the tweaks beneath them.
+docs/meta/montereyGuides/            @un-simp
 
-# docs/meta/montereyGuides/          @Toastconcern
+# Uncomment and fill in as sections find someone to look after them.
 # docs/meta/roottweaks/              @Toastconcern
 # docs/pico/                         @Toastconcern
 # docs/valve/                        @Toastconcern
