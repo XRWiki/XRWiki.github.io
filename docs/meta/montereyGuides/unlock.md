@@ -31,4 +31,4 @@ Connect your headset to your pc and go to the website for the tool located [here
 ![Screenshot 2026-08-31 at 16.48.56.png](../../assets/images/monterey/Screenshot%202026-08-31%20at%2016.48.56.png)
 Press connect headset and select your headset from the list, if you get a permission error or similar, make sure adb is not running on your main pc with `adb kill-server`
 
-The instructions will guide you through the unlock process
+The instructions will guide you through the unlock process test
