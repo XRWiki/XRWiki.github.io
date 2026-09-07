@@ -1,0 +1,45 @@
+# Who owns and moderates each part of the wiki.
+#
+# This is the wiki's permission model, and it is GitHub's own rather than
+# something the site invents. Every edit made through xrwiki.toastconcern.dev
+# arrives as a commit or a pull request, so naming a person here is what makes
+# them the moderator of a page: GitHub requests their review automatically on
+# any pull request touching a path they own, and the site prints them under
+# "Maintainers" at the top of every page they cover.
+#
+# Rules are read top to bottom and THE LAST MATCHING RULE WINS, so the general
+# rule goes first and the specific ones under it.
+#
+# Two things to know:
+#   - An owner must have write access to this repository. Add them under
+#     Settings -> Collaborators and teams first, or the rule is ignored.
+#   - For a review to be *required* rather than merely requested, turn on
+#     Settings -> Branches -> branch protection for `main` and tick
+#     "Require review from Code Owners".
+
+# ---------- owners of the whole wiki ----------
+
+*                                   @Toastconcern
+
+# ---------- moderators, by section ----------
+#
+# Uncomment a line and add the handles of whoever looks after that part.
+# Everything not listed falls back to the owners above.
+
+# docs/meta/montereyGuides/          @Toastconcern
+# docs/meta/roottweaks/              @Toastconcern
+# docs/pico/                         @Toastconcern
+# docs/valve/                        @Toastconcern
+
+# ---------- the site itself ----------
+#
+# Structure and code, as opposed to the guides: a change here affects every
+# page, so it stays with the owners no matter who moderates a section.
+
+/docs/_sidebar.md                    @Toastconcern
+/docs/index.html                     @Toastconcern
+/docs/style.css                      @Toastconcern
+/docs/wiki.css                       @Toastconcern
+/docs/code.js                        @Toastconcern
+/docs/wiki.js                        @Toastconcern
+/.github/                            @Toastconcern

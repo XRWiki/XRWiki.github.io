@@ -52,4 +52,5 @@
 ---
 
 * **Other**
+  * [Editing the Wiki](meta/EditingTheWiki.md)
   * [Credits](credits.md)

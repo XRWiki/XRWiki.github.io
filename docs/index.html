@@ -13,6 +13,10 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css?v=2" />
+  <!-- The collaborative layer's furniture — toolbar, dialogs, editor, comments.
+       Kept apart from style.css so the wiki's look and the wiki's plumbing can
+       be changed without reading each other. -->
+  <link rel="stylesheet" href="wiki.css?v=1" />
 
   <script>
     /* Set the theme before first paint so the page never flashes the wrong
@@ -47,5 +51,8 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
   <script src="code.js?v=2"></script>
+  <!-- Comments, editing, and page and folder creation. Loaded last because it
+       registers a second docsify plugin and reads the theme code.js applies. -->
+  <script src="wiki.js?v=1"></script>
 </body>
 </html>
