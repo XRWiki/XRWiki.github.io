@@ -2,7 +2,7 @@
 
 ## Requirements 
 * Unlocked Bootloader
-* android-bootloader-extractor (Magisk only)
+* [android-bootloader-extractor](https://github.com/tobyxdd/android-ota-payload-extractor/releases/tag/v1.1) (Magisk only)
 * The image of your current firmware from [cocaine.trade](https://cocaine.trade/Quest_firmware) (Magisk only)
 
 ## Rooting without Magisk
